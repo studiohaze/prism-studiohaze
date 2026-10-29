@@ -1,0 +1,13 @@
+{
+  "name": "prism-studiohaze",
+  "version": "0.1.0",
+  "private": true,
+  "description": "External Prism 1.x highlighting for Topaz and Lispex",
+  "main": "index.js",
+  "author": "STUDIO HAZE",
+  "license": "MIT",
+  "scripts": { "test": "node --test test/plugin.test.js" },
+  "files": ["index.js", "src/", "README.md", "LICENSE"],
+  "devDependencies": { "prismjs": "1.30.0" },
+  "peerDependencies": { "prismjs": ">=1.30.0 <2" }
+}
