@@ -51,5 +51,5 @@ and Lispex 1.21.1 CLIs. Tests cover source preservation, token boundaries,
 - [Prism contribution status](https://github.com/PrismJS/prism#contribute-to-prism)
 - [Prism extension API](https://prismjs.com/extending.html)
 
-Only new highlighting code and public examples are included. Prepared with AI
-assistance. MIT licensed; no npm publication is claimed.
+Only new highlighting code and public examples are included. MIT licensed.
+The npm package is prepared for publication.
