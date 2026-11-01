@@ -20,6 +20,23 @@ function token(tokens, content, type) {
     'Missing ' + type + ' ' + JSON.stringify(content));
 }
 
+test('Topaz 5.21 keywords, collection heads and expected markup', () => {
+  const source = fs.readFileSync(path.join(__dirname, 'fixtures/keywords-521.tpz'), 'utf8');
+  const tokens = checked(source, 'topaz');
+  const words = 'let mut const type function return if else match case for in by while '
+    + 'break continue defer concurrent import export as record enum newtype protocol impl derives loop using';
+  for (const word of words.split(' ')) token(tokens, word, 'keyword');
+  for (const word of ['true', 'false', 'null']) token(tokens, word, 'boolean');
+  for (const word of ['map', 'set']) {
+    assert.equal(tokens.filter(t => t.type === 'keyword' && t.content === word).length, 3);
+  }
+  assert.equal(tokens.filter(t => t.type === 'variable' && t.content === 'map').length, 3);
+  token(tokens, 'set', 'variable');
+  for (const name of ['mapValue', 'setValue', 'map상태', 'set💎']) token(tokens, name, 'variable');
+  const html = Prism.highlight(source, Prism.languages.topaz, 'topaz');
+  assert.equal(html, fs.readFileSync(path.join(__dirname, 'fixtures/keywords-521.expect.html'), 'utf8'));
+});
+
 test('Topaz names, numbers, non-nesting comments and interpolation', () => {
   const tokens = checked('let let💎: int = 0x2A\nlet n = 0b10_10\nlet text = "Hi {let💎}"\n/* outer /* inner */ let done = true\n', 'topaz');
   token(tokens, 'let', 'keyword');

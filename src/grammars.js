@@ -46,6 +46,10 @@
         "type": "number"
       },
       {
+        "pattern": "(?<!\\.)(?:map|set)(?=[ \\t]*\\{)",
+        "type": "keyword"
+      },
+      {
         "pattern": "(import|export|as)(?![\\p{L}\\p{N}_\\p{So}])",
         "type": "keyword"
       },
