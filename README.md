@@ -35,8 +35,9 @@ npm test
 
 ## Links
 
-- [Topaz](https://topaz.ooo/) and its [source](https://github.com/studiohaze/topaz)
-- [Lispex](https://www.lispex.com/)
+- [Topaz documentation](https://topaz.ooo/en/docs)
+- [Topaz source](https://github.com/studiohaze/topaz)
+- [Lispex documentation](https://www.lispex.com/en/docs)
 
 ## License
 
